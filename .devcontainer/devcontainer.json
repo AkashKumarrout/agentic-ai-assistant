@@ -1,0 +1,25 @@
+{
+  "name": "agentic-ai-assistant",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {}
+  },
+  "postCreateCommand": "pip install -r requirements.txt && curl -fsSL https://ollama.com/install.sh | sh || true",
+  "postStartCommand": "nohup ollama serve > /tmp/ollama.log 2>&1 & sleep 2 && ollama pull qwen2.5:0.5b || true",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance"
+      ],
+      "settings": {
+        "terminal.integrated.env.linux": {
+          "AGENT_BACKEND": "ollama",
+          "AGENT_MODEL": "qwen2.5:0.5b",
+          "PYTHONPATH": "."
+        }
+      }
+    }
+  },
+  "remoteUser": "vscode"
+}

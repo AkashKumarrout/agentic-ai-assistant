@@ -1,5 +1,7 @@
 # Agentic AI Assistant
 
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/AkashKumarrout/agentic-ai-assistant)
+
 A lightweight, framework-free **multi-agent AI system** in Python that decomposes a user goal into steps and solves it through cooperating specialist agents:
 
 ```
