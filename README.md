@@ -55,14 +55,40 @@ tests/
 └── test_smoke.py
 ```
 
-## Example output
+## Live demo run (real output)
 
+Goal: *Write a Python function to compute the factorial of n iteratively, with 3 unit tests.*  
+Backend: local Ollama with model `qwen2.5:0.5b` (no API key needed).
+
+```text
+[Planner] 4 step(s):
+  - Import math for use in factorial computation
+  - Define helper function factorial_iterative (iterative approach)
+  - Implement test_factorial using assertions
+  - Add 3 unit tests: inputs 0, 1, 5
+[Researcher] 710 chars of notes.
+[Coder]      iteration 1: 710 chars produced.
+[Critic]     iteration 1: APPROVED
 ```
-[Planner]   Steps: 1) parse spec 2) implement parser 3) write tests
-[Researcher] Notes: PTP header is 34 bytes, fields: ...
-[Coder]     Produced 42 lines of Python + pytest cases.
-[Critic]    APPROVED — coverage of all required fields, edge cases handled.
+
+Final code produced by the Coder agent:
+
+```python
+def factorial_iterative(n):
+    if n == 0:
+        return 1
+    result = 1
+    for i in range(1, n + 1):
+        result *= i
+    return result
+
+def test_factorial():
+    assert factorial_iterative(0) == 1
+    assert factorial_iterative(5) == 120
+    assert factorial_iterative(1) == 1
 ```
+
+Full saved transcript: [`examples/sample_run.txt`](examples/sample_run.txt).
 
 ## Roadmap
 
