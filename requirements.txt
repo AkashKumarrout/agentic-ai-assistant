@@ -1,0 +1,2 @@
+# Standard-library only at runtime. Dev/test deps:
+pytest>=7.0
